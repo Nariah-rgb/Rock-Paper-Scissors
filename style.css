@@ -1,0 +1,52 @@
+body {
+    background-image: url('road.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+img {
+    margin-top: 50px;
+}
+
+
+h1{
+    font-family: "cc-overbyte-off", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    color: white;
+}
+
+.characters {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    padding: 0 60px;
+}
+
+.characters img {
+    margin-top: 50px;
+    height: auto;
+    min-width: 0;      /* 🔥 allows shrinking */
+    width: 100%;
+}
+
+.luigi {
+    flex: 0 1 55%;   
+    max-width: 600px;
+}
+
+.mario {
+    flex: 0 1 40%;
+    max-width: 400px;
+}
+
+.btns {
+    text-align: center;
+    font-family: "cc-overbyte-off", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    color: white;
+}
+
