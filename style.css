@@ -3,6 +3,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    margin-bottom: 50px;
 }
 
 img {
@@ -28,7 +29,7 @@ h1{
 .characters img {
     margin-top: 50px;
     height: auto;
-    min-width: 0;      /* 🔥 allows shrinking */
+    min-width: 0;      
     width: 100%;
 }
 
@@ -49,4 +50,66 @@ h1{
     font-style: italic;
     color: white;
 }
+.btn:hover {
+    text-shadow:  0 0 3px #FF0000, 0 0 5px #c20202;;
+}
 
+.btn {
+    font-size: clamp(14px, 2vw, 20px);
+    padding: 1vw;
+    color: white;
+}
+
+.btn:hover {
+    font-size: 25px;
+}
+
+.bomb,
+.banana,
+.plant {
+    width: 18vw;        
+    max-width: 200px;   
+    min-width: 90px;    
+    height: auto;
+}
+
+
+.star {
+    width: 5vw;
+    max-width: 50px;
+    min-width: 25px;
+    height: auto;
+    margin-left: 50px;
+}
+
+.stars {
+    width: 5vw;
+    max-width: 50px;
+    min-width: 25px;
+    height: auto;
+    float: right;
+    margin-right: 50px;
+}
+
+.vs {
+    font-family: "cc-overbyte-off", sans-serif;
+    color: white;
+    font-size: clamp(32px, 6vw, 72px);
+    text-align: center;
+    margin: 0;
+}
+
+.comp {
+    float: right;
+    margin-right: 100px
+}
+
+p {
+    font-family: "cc-overbyte-off", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    text-shadow:  0 0 3px #FF0000, 0 0 5px #c20202;;
+}
