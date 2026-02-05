@@ -60,9 +60,6 @@ h1{
     color: white;
 }
 
-.btn:hover {
-    font-size: 25px;
-}
 
 .bomb,
 .banana,
@@ -74,22 +71,6 @@ h1{
 }
 
 
-.star {
-    width: 5vw;
-    max-width: 50px;
-    min-width: 25px;
-    height: auto;
-    margin-left: 50px;
-}
-
-.stars {
-    width: 5vw;
-    max-width: 50px;
-    min-width: 25px;
-    height: auto;
-    float: right;
-    margin-right: 50px;
-}
 
 .vs {
     font-family: "cc-overbyte-off", sans-serif;
@@ -109,7 +90,82 @@ p {
     font-weight: 400;
     font-style: italic;
     color: white;
-    text-align: center;
     margin-top: 20px;
-    text-shadow:  0 0 3px #FF0000, 0 0 5px #c20202;;
+    text-shadow:  0 0 3px #FF0000, 0 0 5px #c20202;
+    margin: auto;
+    text-align: center;
+}
+
+.player, .computer {
+  text-align: center;
+  color: white;
+  font-family: "cc-overbyte-off", sans-serif;
+}
+
+.player h2,
+.comp-name {
+  margin-bottom: 10px;
+}
+
+.stars-row {
+    display: flex;
+    justify-content: center; /* centers the stars horizontally */
+    margin-bottom: 10px; /* space between stars and name */
+}
+
+.star {
+    width: 5vw;
+    max-width: 50px;
+    min-width: 25px;
+    height: auto;
+    margin: 0 5px; /* spacing between stars */
+}
+
+#comp-name {
+    text-shadow:  0 0 3px #FF0000, 0 0 5px #c20202;
+}
+
+#playername {
+    text-shadow:  0 0 3px #00b418, 0 0 5px #00b418;
+}
+
+.btn:active {
+    transform: scale(0.9) rotate(-5deg);
+    transition: transform 0.1s;
+}
+
+.btn:hover {
+    transform: scale(1.1) rotate(5deg);
+    transition: transform 0.2s;
+    text-shadow: 0 0 5px #FFD700, 0 0 10px #FFA500;
+}
+
+.star {
+    animation: sparkle 1.5s infinite alternate;
+}
+
+@keyframes sparkle {
+    0% { filter: drop-shadow(0 0 2px gold); }
+    50% { filter: drop-shadow(0 0 8px gold); }
+    100% { filter: drop-shadow(0 0 2px gold); }
+}
+
+.luigi {
+    animation: slideLeft 1s ease-out forwards;
+    opacity: 0;
+}
+
+.mario {
+    animation: slideRight 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes slideLeft {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
 }
