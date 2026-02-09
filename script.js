@@ -4,36 +4,30 @@ if (!playerName) playerName = "Player";
 
 document.getElementById("player-name").innerHTML =
   `<p>Welcome <b>${playerName}</b> to Mario Kart Rock Paper Scissors</p>`;
-
 document.getElementById("playername").textContent = playerName;
 
 let roundNumber = 1;
 let userWins = 0;
 let computerWins = 0;
-
 let choices = ["rock", "paper", "scissors"];
-
 
 document.getElementById("round-display").textContent =
   "Round " + roundNumber + " of " + maxRounds;
 document.getElementById("reset-btn").style.display = "none";
 
-
 function playRound(userChoice) {
-  if (roundNumber > maxRounds) return; 
+  if (roundNumber > maxRounds) return;
 
- 
+  
   let computerChoice = choices[Math.floor(Math.random() * 3)];
-while (computerChoice === userChoice) {
-  computerChoice = choices[Math.floor(Math.random() * 3)];
-}
+  while (computerChoice === userChoice) {
+    computerChoice = choices[Math.floor(Math.random() * 3)];
+  }
 
-
- 
   document.getElementById("user-choice").textContent = "You chose: " + userChoice;
   document.getElementById("computer-choice").textContent = "Computer chose: " + computerChoice;
 
- 
+
   let resultMessage = "";
   if (
     (userChoice === "rock" && computerChoice === "scissors") ||
@@ -51,18 +45,16 @@ while (computerChoice === userChoice) {
 
   updateStars();
 
- 
+
   if (userWins === 3 || computerWins === 3 || roundNumber >= maxRounds) {
     endGame();
     return;
   }
 
-
   roundNumber++;
   document.getElementById("round-display").textContent =
     "Round " + roundNumber + " of " + maxRounds;
 }
-
 
 function updateStars() {
   const playerStars = document.querySelectorAll("#player-stars .star");
@@ -86,6 +78,7 @@ function endGame() {
   } else if (computerWins > userWins) {
     finalMessage = "HaHa, you lose. " + playerName + ", better luck next time.";
   } else {
+    
     finalMessage = "Oh no, it's a tie. Rematch?";
   }
 
@@ -93,7 +86,6 @@ function endGame() {
   document.getElementById("round-display").textContent = "Game Over";
   document.getElementById("reset-btn").style.display = "block";
 }
-
 
 
 function resetGame() {
@@ -107,8 +99,6 @@ function resetGame() {
 
   document.getElementById("round-display").textContent =
     "Round " + roundNumber + " of " + maxRounds;
-
-  document.querySelectorAll(".btns .btn").forEach(btn => btn.disabled = false);
 
   document.querySelectorAll("#player-stars .star, #computer-stars .star").forEach(star => {
     star.style.visibility = "visible";
