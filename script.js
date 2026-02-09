@@ -79,13 +79,9 @@ if (roundNumber === 6) {
 
 function endGame() {
   let buttons = document.querySelectorAll(".btn");
-  buttons.forEach(function (button) {
-    button.disabled = true;
-  });
+  buttons.forEach(btn => btn.disabled = true);
 
   document.getElementById("round-display").textContent = "Game Over";
-  document.getElementById("message").textContent = "Final Score - User: " + userWins + " | Computer: " + computerWins;
-  document.getElementById("reset-btn").style.display = "block";
   
   let finalMessage = "";
 
@@ -105,23 +101,18 @@ function resetGame() {
   userWins = 0;
   computerWins = 0;
 
-  document.getElementById("user-choice").textContent = "";
-  document.getElementById("computer-choice").textContent = "";
   document.getElementById("message").textContent = "";
+  document.getElementById("round-display").textContent = "Round 1 of " + maxRounds;
 
-  document.getElementById("scoreboard").textContent = "User: 0 | Computer: 0";
+  document.querySelectorAll(".btn").forEach(btn => btn.disabled = false);
 
-  let buttons = document.querySelectorAll(".btn");
-  buttons.forEach(function (button) {
-    button.disabled = false;
-  })
   document.getElementById("reset-btn").style.display = "none";
-  document.getElementById("round-display").textContent = "Round 1 of 5";
+  document.getElementById("round-display").textContent = "Round " + roundNumber + " of " + maxRounds;
  
   document.querySelectorAll("#player-stars .star, #computer-stars .star").forEach(star => {
   star.style.visibility = "visible";
 });
-
+document.getElementById("reset-btn").style.display = "none";
 }
 
 function updateStars() {
