@@ -187,3 +187,22 @@ p {
 #reset-btn:hover {
   background-color: #222;
 }
+
+.star {
+  width: 40px;
+  height: 40px;
+  transition: visibility 0.3s, opacity 0.3s;
+}
+
+.star[style*="hidden"] {
+  opacity: 0;
+}
+
+#round-display {
+  color: #ffcc00; /* bright yellow for Mario Kart vibe */
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px #000; /* optional: adds a little shadow for depth */
+  margin: 20px 0;
+}

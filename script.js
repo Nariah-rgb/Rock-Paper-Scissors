@@ -68,7 +68,7 @@ else if (userChoice === "scissors") {
 }
 }
 document.getElementById("message").textContent = resultMessage;
-document.getElementById("scoreboard").textContent = "User:" + userWins + " | Computer: " + computerWins;
+updateStars();
 
 roundNumber = roundNumber + 1;
 if (roundNumber === 6) {
@@ -117,4 +117,30 @@ function resetGame() {
   })
   document.getElementById("reset-btn").style.display = "none";
   document.getElementById("round-display").textContent = "Round 1 of 5";
+ 
+  document.querySelectorAll("#player-stars .star, #computer-stars .star").forEach(star => {
+  star.style.visibility = "visible";
+});
+
+}
+
+function updateStars() {
+  const playerStars = document.querySelectorAll("#player-stars .star");
+  const computerStars = document.querySelectorAll("#computer-stars .star");
+
+  playerStars.forEach((star, index) => {
+    if (index < 3 - userWins) {
+      star.style.visibility = "visible"; 
+    } else {
+      star.style.visibility = "hidden"; 
+    }
+  });
+
+  computerStars.forEach((star, index) => {
+    if (index < 3 - computerWins) {
+      star.style.visibility = "visible";
+    } else {
+      star.style.visibility = "hidden";
+    }
+  });
 }
