@@ -51,20 +51,28 @@
       </div>
     </div>
     <h1 class="vs">vs</h1>
+    <div class = "choices-display">
+      <p id="user-choice"></p>
+      <p id="computer-choice"></p>
+      <p id="message"></p>
+    </div>
+    <h2 id="round-display"></h2>
+    <h3 id="scoreboard"></h3>
     <div class="btns">
-      <button class="btn" data-choice="rock" >
+      <button class="btn" onclick=""playRound('rock')>
         <img class="bomb" src="mariokartbomb.png" /> <br />
         Rock
       </button>
-      <button class="btn" data-choice="paper">
+      <button class="btn" onclick=""playRound('paper')>
         <img class="banana" src="banana.png" /> <br />
         Paper
       </button>
-      <button class="btn" data-choice="scissors">
+      <button class="btn" onclick=""playRound('scissors')>
         <img class="plant" src="plant.png" /> <br />
         Scissors
       </button>
     </div>
+    <button id="reset-btn" class="btn btn-primary" onclick="resetGame()">Reset Game</button>
 
     <main></main>
     <footer>
