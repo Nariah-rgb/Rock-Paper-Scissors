@@ -1,6 +1,6 @@
 let maxRounds = 5;
 let playerName = prompt("What is your name");
-if (playerName) {
+if (!playerName) {
   playerName = "Player";
 }
 const yourName = `<p>Welcome <b>${playerName}</b> to Mario Kart Rock Paper Scissors</p>`;

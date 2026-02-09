@@ -169,3 +169,21 @@ p {
     0% { transform: translateX(100%); opacity: 0; }
     100% { transform: translateX(0); opacity: 1; }
 }
+
+#reset-btn {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: block;          /* allows centering */
+  margin: 30px auto;       /* centers horizontally */
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#reset-btn:hover {
+  background-color: #222;
+}
