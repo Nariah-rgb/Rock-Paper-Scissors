@@ -27,11 +27,11 @@ function playRound(userChoice) {
   console.log("Computer chose:", computerChoice);
 
   if (roundNumber <= maxRounds) {
-  document.getElementById("round-display").textContent = "Round" + " of " + maxRounds;
+  document.getElementById("round-display").textContent = "Round" + " of 5" + maxRounds;
 } else {
   document.getElementById("round-display").textContent = "Game Over";
 }
-}
+
 
 let resultMessage = "";
 if (userChoice === computerChoice) {
@@ -39,7 +39,7 @@ if (userChoice === computerChoice) {
 } 
 else if (userChoice === "rock") {
   if (computerChoice === "scissors") {
-    resultMessafe = "You win!";
+    resultMessage = "You win!";
     userWins = userWins + 1;
   } else {
     resultMessage = "Computer wins!";
@@ -66,7 +66,7 @@ else if (userChoice === "scissors") {
     computerWins = computerWins + 1;
   }
 }
-
+}
 document.getElementById("message").textContent = resultMessage;
 document.getElementById("scoreboard").textContent = "User:" + userWins + " | Computer: " + computerWins;
 
