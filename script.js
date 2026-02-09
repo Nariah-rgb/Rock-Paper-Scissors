@@ -15,58 +15,45 @@ let computerWins = 0;
 let choices = ["rock", "paper", "scissors"];
 
 document.getElementById("round-display").textContent = "round" + roundNumber + "of 5";
-document.getElementById("scoreboard").textContent = "User: " + " | Computer: " + computerWins;
 
 document.getElementById("reset-btn").style.display = "none";
 document.getElementById("reset-btn").style.display = "block";
 
 function playRound(userChoice) {
-  console.log("User chose:", userChoice);
-  let randomIndex = Math.floor(Math.random() * 3);
-  let computerChoice = choices[randomIndex];
-  console.log("Computer chose:", computerChoice);
+  let computerChoice = choices[Math.floor(Math.random() * 3)];
 
-  if (roundNumber <= maxRounds) {
-  document.getElementById("round-display").textContent = "Round" + " of 5" + maxRounds;
-} else {
-  document.getElementById("round-display").textContent = "Game Over";
-}
+  let resultMessage = "";
 
-
-let resultMessage = "";
-if (userChoice === computerChoice) {
-  resultMessage = "Its a tie!" + userChoice + ".";
-} 
-else if (userChoice === "rock") {
-  if (computerChoice === "scissors") {
+  if (userChoice === computerChoice) {
+    resultMessage = "It's a tie!";
+  } else if (
+    (userChoice === "rock" && computerChoice === "scissors") ||
+    (userChoice === "paper" && computerChoice === "rock") ||
+    (userChoice === "scissors" && computerChoice === "paper")
+  ) {
     resultMessage = "You win!";
-    userWins = userWins + 1;
+    userWins++;
   } else {
     resultMessage = "Computer wins!";
-    computerWins = computerWins + 1;
+    computerWins++;
+  }
+
+  document.getElementById("message").textContent = resultMessage;
+
+  // update stars after each round
+  updateStars();
+
+  // increment round
+  roundNumber++;
+
+  if (roundNumber > maxRounds) {
+    endGame();
+  } else {
+    document.getElementById("round-display").textContent =
+      "Round " + roundNumber + " of " + maxRounds;
   }
 }
 
-else if (userChoice === "paper") {
-  if (computerChoice === "rock") {
-    resultMessage = "You win!";
-    userWins = userWins + 1;
-  } else {
-    resultMessage = "Computer wins!";
-    computerWins = computerWins + 1;
-  }
-}
-
-else if (userChoice === "scissors") {
-  if (computerChoice === "paper") {
-    resultMessage = "You win!";
-    userWins = userWins + 1;
-  } else {
-    resultMessage = "Computer wins!";
-    computerWins = computerWins + 1;
-  }
-}
-}
 document.getElementById("message").textContent = resultMessage;
 updateStars();
 
@@ -106,32 +93,23 @@ function resetGame() {
 
   document.querySelectorAll(".btn").forEach(btn => btn.disabled = false);
 
-  document.getElementById("reset-btn").style.display = "none";
-  document.getElementById("round-display").textContent = "Round " + roundNumber + " of " + maxRounds;
- 
   document.querySelectorAll("#player-stars .star, #computer-stars .star").forEach(star => {
-  star.style.visibility = "visible";
-});
-document.getElementById("reset-btn").style.display = "none";
+    star.style.visibility = "visible";
+  });
+
+  document.getElementById("reset-btn").style.display = "none";
 }
+
 
 function updateStars() {
   const playerStars = document.querySelectorAll("#player-stars .star");
   const computerStars = document.querySelectorAll("#computer-stars .star");
 
   playerStars.forEach((star, index) => {
-    if (index < 3 - userWins) {
-      star.style.visibility = "visible"; 
-    } else {
-      star.style.visibility = "hidden"; 
-    }
+    star.style.visibility = index < 3 - userWins ? "visible" : "hidden";
   });
 
   computerStars.forEach((star, index) => {
-    if (index < 3 - computerWins) {
-      star.style.visibility = "visible";
-    } else {
-      star.style.visibility = "hidden";
-    }
+    star.style.visibility = index < 3 - computerWins ? "visible" : "hidden";
   });
 }
