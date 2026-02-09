@@ -47,6 +47,9 @@ function playRound(userChoice) {
   document.getElementById("message").textContent = resultMessage;
 
   updateStars();
+if (userWins === 3 || computerWins === 3 || roundNumber > maxRounds) {
+  endGame();
+}
 
 
   roundNumber++;
@@ -73,9 +76,9 @@ function updateStars() {
 }
 
 function endGame() {
-
   document.querySelectorAll(".btn").forEach(btn => btn.disabled = true);
 
+  updateStars(); // Update stars first
 
   let finalMessage = "";
   if (userWins > computerWins) {
@@ -92,6 +95,7 @@ function endGame() {
 }
 
 
+
 function resetGame() {
   roundNumber = 1;
   userWins = 0;
@@ -104,7 +108,7 @@ function resetGame() {
   document.getElementById("round-display").textContent =
     "Round " + roundNumber + " of " + maxRounds;
 
-  document.querySelectorAll(".btn").forEach(btn => btn.disabled = false);
+  document.querySelectorAll(".btns .btn").forEach(btn => btn.disabled = false);
 
   document.querySelectorAll("#player-stars .star, #computer-stars .star").forEach(star => {
     star.style.visibility = "visible";

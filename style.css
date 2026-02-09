@@ -206,3 +206,7 @@ p {
   text-shadow: 2px 2px 4px #000; /* optional: adds a little shadow for depth */
   margin: 20px 0;
 }
+
+.choices-display p {
+  min-height: 2em; /* ensures message is visible */
+}
