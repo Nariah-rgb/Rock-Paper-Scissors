@@ -76,7 +76,7 @@ function updateStars() {
 }
 
 function endGame() {
-  document.querySelectorAll(".btn").forEach(btn => btn.disabled = true);
+  document.querySelectorAll(".btns .btn").forEach(btn => btn.disabled = true);
 
   updateStars(); // Update stars first
 
