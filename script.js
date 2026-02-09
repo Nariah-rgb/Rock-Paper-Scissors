@@ -31,7 +31,7 @@ function playRound(userChoice) {
  
   let resultMessage = "";
   if (userChoice === computerChoice) {
-    resultMessage = "It's a tie!";
+    resultMessage = "It's a tie! Pick again.";
   } else if (
     (userChoice === "rock" && computerChoice === "scissors") ||
     (userChoice === "paper" && computerChoice === "rock") ||
