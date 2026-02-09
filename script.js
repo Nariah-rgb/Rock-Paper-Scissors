@@ -22,17 +22,20 @@ document.getElementById("reset-btn").style.display = "none";
 function playRound(userChoice) {
   if (roundNumber > maxRounds) return; 
 
-  
+ 
   let computerChoice = choices[Math.floor(Math.random() * 3)];
+while (computerChoice === userChoice) {
+  computerChoice = choices[Math.floor(Math.random() * 3)];
+}
 
+
+ 
   document.getElementById("user-choice").textContent = "You chose: " + userChoice;
   document.getElementById("computer-choice").textContent = "Computer chose: " + computerChoice;
 
  
   let resultMessage = "";
-  if (userChoice === computerChoice) {
-    resultMessage = "It's a tie! Pick again.";
-  } else if (
+  if (
     (userChoice === "rock" && computerChoice === "scissors") ||
     (userChoice === "paper" && computerChoice === "rock") ||
     (userChoice === "scissors" && computerChoice === "paper")
@@ -47,20 +50,19 @@ function playRound(userChoice) {
   document.getElementById("message").textContent = resultMessage;
 
   updateStars();
-if (userWins === 3 || computerWins === 3 || roundNumber > maxRounds) {
-  endGame();
-}
+
+ 
+  if (userWins === 3 || computerWins === 3 || roundNumber >= maxRounds) {
+    endGame();
+    return;
+  }
 
 
   roundNumber++;
-
-  if (roundNumber > maxRounds) {
-    endGame();
-  } else {
-    document.getElementById("round-display").textContent =
-      "Round " + roundNumber + " of " + maxRounds;
-  }
+  document.getElementById("round-display").textContent =
+    "Round " + roundNumber + " of " + maxRounds;
 }
+
 
 function updateStars() {
   const playerStars = document.querySelectorAll("#player-stars .star");
@@ -76,9 +78,7 @@ function updateStars() {
 }
 
 function endGame() {
-  document.querySelectorAll(".btns .btn").forEach(btn => btn.disabled = true);
-
-  updateStars(); // Update stars first
+  updateStars(); 
 
   let finalMessage = "";
   if (userWins > computerWins) {
