@@ -1,13 +1,31 @@
 body {
+    margin: 0;
+    height: 100vh;              /* lock to screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;  /* evenly space sections */
+    align-items: center;
+    overflow: hidden;           /* prevents scrolling */
+    
     background-image: url('road.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    margin-bottom: 50px;
+}
+
+
+html, body {
+    margin: 0;
+    text-align: center;
 }
 
 img {
-    margin-top: 50px;
+    margin-top: 10px;
+}
+
+header h1 {
+    font-size: clamp(20px, 3vw, 36px);
+    margin: 0;
 }
 
 
@@ -16,32 +34,29 @@ h1{
     font-weight: 400;
     font-style: italic;
     color: white;
+    font-size: clamp(24px, 5vw, 48px);
 }
 
 .characters {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    padding: 0 60px;
-}
-
-.characters img {
-    margin-top: 50px;
-    height: auto;
-    min-width: 0;      
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
     width: 100%;
 }
 
-.luigi {
-    flex: 0 1 55%;   
-    max-width: 600px;
+.characters img {
+    margin-top: 10px;
+    height: auto;
 }
 
+.luigi,
 .mario {
-    flex: 0 1 40%;
-    max-width: 400px;
+    max-height: 28vh;   /* smaller so buttons fit */
+    width: auto;
+    margin: 0;
 }
+
 
 .btns {
     text-align: center;
@@ -60,24 +75,21 @@ h1{
     color: white;
 }
 
-
 .bomb,
 .banana,
 .plant {
-    width: 18vw;        
-    max-width: 200px;   
-    min-width: 90px;    
-    height: auto;
+    width: 8vw;
+    max-width: 100px;
+    min-width: 60px; 
 }
-
-
 
 .vs {
     font-family: "cc-overbyte-off", sans-serif;
+    font-size: clamp(32px, 5vw, 60px);
     color: white;
-    font-size: clamp(32px, 6vw, 72px);
-    text-align: center;
+    text-shadow: 0 0 10px red;
     margin: 0;
+    align-self: center;
 }
 
 .comp {
@@ -94,6 +106,7 @@ p {
     text-shadow:  0 0 3px #FF0000, 0 0 5px #c20202;
     margin: auto;
     text-align: center;
+    margin-top: 5px;
 }
 
 .player, .computer {
@@ -137,7 +150,7 @@ p {
 .btn:hover {
     transform: scale(1.1) rotate(5deg);
     transition: transform 0.2s;
-    text-shadow: 0 0 5px #FFD700, 0 0 10px #FFA500;
+    text-shadow: 0 0 5px #ffd700, 0 0 10px #FFA500;
 }
 
 .star {
@@ -178,7 +191,7 @@ p {
   font-size: 1.2rem;
   font-weight: bold;
   display: block;          /* allows centering */
-  margin: 30px auto;       /* centers horizontally */
+  margin: 10px auto;       /* centers horizontally */
   text-align: center;
   border-radius: 8px;
   cursor: pointer;
@@ -199,14 +212,24 @@ p {
 }
 
 #round-display {
-  color: #ffcc00; /* bright yellow for Mario Kart vibe */
+  color: #ffd700; /* bright yellow for Mario Kart vibe */
   font-weight: bold;
   text-align: center;
   font-size: 2rem;
   text-shadow: 2px 2px 4px #000; /* optional: adds a little shadow for depth */
-  margin: 20px 0;
+  margin-top: 0;
 }
 
 .choices-display p {
   min-height: 2em; /* ensures message is visible */
+}
+
+header,
+.characters,
+.choices-display,
+#round-display,
+.btns,
+#reset-btn {
+    width: 100%;
+    text-align: center;
 }

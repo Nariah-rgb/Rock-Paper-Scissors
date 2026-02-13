@@ -18,7 +18,7 @@ document.getElementById("reset-btn").style.display = "none";
 function playRound(userChoice) {
   if (roundNumber > maxRounds) return;
 
-  
+
   let computerChoice = choices[Math.floor(Math.random() * 3)];
   while (computerChoice === userChoice) {
     computerChoice = choices[Math.floor(Math.random() * 3)];
@@ -30,14 +30,14 @@ function playRound(userChoice) {
 
   let resultMessage = "";
   if (
-    (userChoice === "rock" && computerChoice === "scissors") ||
-    (userChoice === "paper" && computerChoice === "rock") ||
-    (userChoice === "scissors" && computerChoice === "paper")
+    (userChoice === "scissors" && computerChoice === "rock") ||
+    (userChoice === "rock" && computerChoice === "paper") ||
+    (userChoice === "paper" && computerChoice === "scissors")
   ) {
-    resultMessage = "You win this round!";
+    resultMessage = "Computer wins this round!";
     userWins++;
   } else {
-    resultMessage = "Computer wins this round!";
+    resultMessage = "You win this round!";
     computerWins++;
   }
 
@@ -70,15 +70,15 @@ function updateStars() {
 }
 
 function endGame() {
-  updateStars(); 
+  updateStars();
 
   let finalMessage = "";
   if (userWins > computerWins) {
-    finalMessage = "Congrats " + playerName + "! You won the Grand Prix!";
-  } else if (computerWins > userWins) {
     finalMessage = "HaHa, you lose. " + playerName + ", better luck next time.";
+  } else if (computerWins > userWins) {
+    finalMessage = "Congrats " + playerName + "! You won the Grand Prix!";
   } else {
-    
+
     finalMessage = "Oh no, it's a tie. Rematch?";
   }
 
